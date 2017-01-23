@@ -12,6 +12,9 @@
 		AA8164B71E356B530099915A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA8164B51E356B530099915A /* Main.storyboard */; };
 		AA8164B91E356B530099915A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA8164B81E356B530099915A /* Assets.xcassets */; };
 		AA8164BC1E356B530099915A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA8164BA1E356B530099915A /* LaunchScreen.storyboard */; };
+		AA8164C61E3572030099915A /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8164C51E3572030099915A /* Book.swift */; };
+		AA8164C81E3579CC0099915A /* book_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = AA8164C71E3579CC0099915A /* book_icon.png */; };
+		AA8164CC1E35D1E90099915A /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8164CB1E35D1E90099915A /* UIImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +25,9 @@
 		AA8164B81E356B530099915A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AA8164BB1E356B530099915A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AA8164BD1E356B530099915A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AA8164C51E3572030099915A /* Book.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
+		AA8164C71E3579CC0099915A /* book_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = book_icon.png; sourceTree = "<group>"; };
+		AA8164CB1E35D1E90099915A /* UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +60,17 @@
 		AA8164B01E356B530099915A /* HackerBooks */ = {
 			isa = PBXGroup;
 			children = (
+				AA8164CA1E35D1D50099915A /* Frameworks */,
+				AA8164C31E3571DD0099915A /* App */,
+			);
+			path = HackerBooks;
+			sourceTree = "<group>";
+		};
+		AA8164C31E3571DD0099915A /* App */ = {
+			isa = PBXGroup;
+			children = (
+				AA8164C91E3579D10099915A /* Resources */,
+				AA8164C41E3571E70099915A /* Models */,
 				AA8164B11E356B530099915A /* AppDelegate.swift */,
 				AA8164B31E356B530099915A /* ViewController.swift */,
 				AA8164B51E356B530099915A /* Main.storyboard */,
@@ -61,7 +78,31 @@
 				AA8164BA1E356B530099915A /* LaunchScreen.storyboard */,
 				AA8164BD1E356B530099915A /* Info.plist */,
 			);
-			path = HackerBooks;
+			name = App;
+			sourceTree = "<group>";
+		};
+		AA8164C41E3571E70099915A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				AA8164C51E3572030099915A /* Book.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		AA8164C91E3579D10099915A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				AA8164C71E3579CC0099915A /* book_icon.png */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		AA8164CA1E35D1D50099915A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AA8164CB1E35D1E90099915A /* UIImage.swift */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,6 +168,7 @@
 				AA8164BC1E356B530099915A /* LaunchScreen.storyboard in Resources */,
 				AA8164B91E356B530099915A /* Assets.xcassets in Resources */,
 				AA8164B71E356B530099915A /* Main.storyboard in Resources */,
+				AA8164C81E3579CC0099915A /* book_icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,7 +180,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA8164B41E356B530099915A /* ViewController.swift in Sources */,
+				AA8164CC1E35D1E90099915A /* UIImage.swift in Sources */,
 				AA8164B21E356B530099915A /* AppDelegate.swift in Sources */,
+				AA8164C61E3572030099915A /* Book.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
