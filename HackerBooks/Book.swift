@@ -20,34 +20,29 @@ class Book {
     var title: Title
     var authors: [Author]
     var tags: [Tag]
-    var coverImage: UIImage
-    var pdfUrl: URL
+    var coverImageUrl: URL?
+    var pdfUrl: URL?
     
     //MARK: - Initialization
     
     init(title: Title, authors: [Author],
-         tags: [Tag], coverImage: UIImage, pdfUrl: URL) {
+         tags: [Tag], coverImageUrl: URL?, pdfUrl: URL?) {
         self.title = title
         self.authors = authors
         self.tags = tags
-        self.coverImage = coverImage
+        self.coverImageUrl = coverImageUrl
         self.pdfUrl = pdfUrl
     }
     
-    convenience init(title: Title, authors: [Author],
-                     tags: [Tag], coverStringUrl: String, pdfUrl: URL) {
-        let coverImage: UIImage
-        
-        if let coverUrl = URL(string: coverStringUrl),
-            let coverData = try? Data(contentsOf: coverUrl) {
-            coverImage = UIImage(data: coverData) ?? UIImage(assetIdentifier: .DefaultBookCover)
-        } else {
-            coverImage = UIImage(assetIdentifier: .DefaultBookCover)
-        }
-        
-            
-        self.init(title: title, authors: authors,
-                  tags: tags, coverImage: coverImage, pdfUrl: pdfUrl)
+    convenience init(title: String, authors: String,
+                     tags: String, coverStringUrl: String, pdfStringUrl: String) {
+        self.init(
+            title: title as Title,
+            authors: authors.components(separatedBy: ", ").flatMap({ $0 as Author }),
+            tags: tags.components(separatedBy: ", ").flatMap({ $0 as Tag }),
+            coverImageUrl: URL(string: coverStringUrl),
+            pdfUrl: URL(string: pdfStringUrl)
+        )
          
     }
     
