@@ -10,6 +10,7 @@
 		AA27DC9F1E4277EE009005E1 /* AsyncData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA27DC9E1E4277EE009005E1 /* AsyncData.swift */; };
 		AA27DCA31E427BEC009005E1 /* books_readable.json in Resources */ = {isa = PBXBuildFile; fileRef = AA27DCA21E427BEC009005E1 /* books_readable.json */; };
 		AA27DCA51E429E33009005E1 /* MultiDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA27DCA41E429E33009005E1 /* MultiDictionary.swift */; };
+		AA27DCA71E42A0E1009005E1 /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA27DCA61E42A0E1009005E1 /* Library.swift */; };
 		AA8164B21E356B530099915A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8164B11E356B530099915A /* AppDelegate.swift */; };
 		AA8164B41E356B530099915A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8164B31E356B530099915A /* ViewController.swift */; };
 		AA8164B71E356B530099915A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA8164B51E356B530099915A /* Main.storyboard */; };
@@ -23,6 +24,7 @@
 		AA27DC9E1E4277EE009005E1 /* AsyncData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncData.swift; sourceTree = "<group>"; };
 		AA27DCA21E427BEC009005E1 /* books_readable.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = books_readable.json; sourceTree = "<group>"; };
 		AA27DCA41E429E33009005E1 /* MultiDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiDictionary.swift; sourceTree = "<group>"; };
+		AA27DCA61E42A0E1009005E1 /* Library.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Library.swift; sourceTree = "<group>"; };
 		AA8164AE1E356B530099915A /* HackerBooks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackerBooks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA8164B11E356B530099915A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AA8164B31E356B530099915A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				AA8164C51E3572030099915A /* Book.swift */,
+				AA27DCA61E42A0E1009005E1 /* Library.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -191,6 +194,7 @@
 				AA27DC9F1E4277EE009005E1 /* AsyncData.swift in Sources */,
 				AA8164B21E356B530099915A /* AppDelegate.swift in Sources */,
 				AA8164C61E3572030099915A /* Book.swift in Sources */,
+				AA27DCA71E42A0E1009005E1 /* Library.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

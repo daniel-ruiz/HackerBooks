@@ -46,4 +46,40 @@ class Book {
          
     }
     
+    //MARK: - Proxies
+    
+    func proxyForEquality() -> String {
+        return "\(title)\(authors)\(tags)\(coverImageUrl?.hashValue)\(pdfUrl?.hashValue)"
+    }
+    
+}
+
+//MARK: - Protocols
+
+extension Book: Equatable {
+    static func ==(lhs: Book, rhs: Book) -> Bool {
+        return lhs.proxyForEquality() == rhs.proxyForEquality()
+    }
+}
+
+extension Book: Comparable {
+    static func <(lhs: Book, rhs: Book) -> Bool {
+        return lhs.proxyForEquality() < rhs.proxyForEquality()
+    }
+}
+
+extension Book: Hashable {
+    var hashValue: Int {
+        get{
+            return proxyForEquality().hashValue
+        }
+    }
+}
+
+extension Book: CustomStringConvertible {
+    var description: String {
+        get {
+            return "<Book title:\(title) authors:\(authors) tags:\(tags) coverImageUrl:\(coverImageUrl?.hashValue) pdfUrl:\(pdfUrl?.hashValue)>"
+        }
+    }
 }
