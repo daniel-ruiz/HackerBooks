@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AA27DC9F1E4277EE009005E1 /* AsyncData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA27DC9E1E4277EE009005E1 /* AsyncData.swift */; };
 		AA8164B21E356B530099915A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8164B11E356B530099915A /* AppDelegate.swift */; };
 		AA8164B41E356B530099915A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8164B31E356B530099915A /* ViewController.swift */; };
 		AA8164B71E356B530099915A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA8164B51E356B530099915A /* Main.storyboard */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AA27DC9E1E4277EE009005E1 /* AsyncData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncData.swift; sourceTree = "<group>"; };
 		AA8164AE1E356B530099915A /* HackerBooks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackerBooks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA8164B11E356B530099915A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AA8164B31E356B530099915A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				AA8164CB1E35D1E90099915A /* UIImage.swift */,
+				AA27DC9E1E4277EE009005E1 /* AsyncData.swift */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -181,6 +184,7 @@
 			files = (
 				AA8164B41E356B530099915A /* ViewController.swift in Sources */,
 				AA8164CC1E35D1E90099915A /* UIImage.swift in Sources */,
+				AA27DC9F1E4277EE009005E1 /* AsyncData.swift in Sources */,
 				AA8164B21E356B530099915A /* AppDelegate.swift in Sources */,
 				AA8164C61E3572030099915A /* Book.swift in Sources */,
 			);
@@ -346,6 +350,7 @@
 				AA8164C21E356B530099915A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
