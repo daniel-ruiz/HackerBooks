@@ -11,6 +11,15 @@ import Foundation
 class Library {
     
     //MARK: - Properties
-    var books: MultiDictionary<Tag, Book>
+    var books = MultiDictionary<Tag, Book>()
+    
+    //MARK: - Initiaization
+    init(books: [Book]) {
+        for book in books {
+            for tag in book.tags {
+                self.books.insert(value: book, forKey: tag)
+            }
+        }
+    }
     
 }
