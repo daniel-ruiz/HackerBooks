@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		AA27DC9F1E4277EE009005E1 /* AsyncData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA27DC9E1E4277EE009005E1 /* AsyncData.swift */; };
+		AA27DCA31E427BEC009005E1 /* books_readable.json in Resources */ = {isa = PBXBuildFile; fileRef = AA27DCA21E427BEC009005E1 /* books_readable.json */; };
 		AA8164B21E356B530099915A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8164B11E356B530099915A /* AppDelegate.swift */; };
 		AA8164B41E356B530099915A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8164B31E356B530099915A /* ViewController.swift */; };
 		AA8164B71E356B530099915A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA8164B51E356B530099915A /* Main.storyboard */; };
@@ -20,6 +21,7 @@
 
 /* Begin PBXFileReference section */
 		AA27DC9E1E4277EE009005E1 /* AsyncData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncData.swift; sourceTree = "<group>"; };
+		AA27DCA21E427BEC009005E1 /* books_readable.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = books_readable.json; sourceTree = "<group>"; };
 		AA8164AE1E356B530099915A /* HackerBooks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackerBooks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA8164B11E356B530099915A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AA8164B31E356B530099915A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 		AA8164C91E3579D10099915A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				AA27DCA21E427BEC009005E1 /* books_readable.json */,
 				AA8164C71E3579CC0099915A /* book_icon.png */,
 			);
 			name = Resources;
@@ -168,6 +171,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA27DCA31E427BEC009005E1 /* books_readable.json in Resources */,
 				AA8164BC1E356B530099915A /* LaunchScreen.storyboard in Resources */,
 				AA8164B91E356B530099915A /* Assets.xcassets in Resources */,
 				AA8164B71E356B530099915A /* Main.storyboard in Resources */,
