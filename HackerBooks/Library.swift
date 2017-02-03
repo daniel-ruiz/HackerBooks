@@ -13,13 +13,34 @@ class Library {
     //MARK: - Properties
     
     var books = MultiDictionary<Tag, Book>()
-    var booksCount: Int {
+    
+    
+    //MARK: - Computed Properties
+    
+    var bookCount: Int {
         get {
             return books.countUnique
         }
     }
     
-    //MARK: - Initiaization
+    var tags: [Tag] {
+        get {
+            var tags: [Tag] = []
+            for tag in books.keys.sorted() {
+                tags.append(tag)
+            }
+            return tags
+        }
+    }
+    
+    var tagCount: Int {
+        get {
+            return books.keys.count
+        }
+    }
+    
+    
+    //MARK: - Initialization
     
     init(books: [Book]) {
         for book in books {
@@ -28,6 +49,7 @@ class Library {
             }
         }
     }
+    
     
     //MARK: - Data Retrieval
     

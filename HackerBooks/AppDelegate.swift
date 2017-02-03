@@ -16,7 +16,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     //MARK: - App Lifecycle
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        var library = Library(books: downloadBookCollection())
+        let library = Library(books: downloadBookCollection())
+        let libraryController = LibraryViewController(library: library)
+        let navigationController = UINavigationController(rootViewController: libraryController)
+        
+        self.window?.rootViewController = navigationController
+        self.window?.makeKeyAndVisible()
         return true
     }
 

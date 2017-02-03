@@ -23,6 +23,14 @@ class Book {
     var coverImageUrl: URL?
     var pdfUrl: URL?
     
+    //MARK: - Computed Properties
+    
+    var authorsDescription: String {
+        get {
+            return authors.map({ $0 as String }).joined(separator: ", ")
+        }
+    }
+    
     //MARK: - Initialization
     
     init(title: Title, authors: [Author],
