@@ -59,6 +59,14 @@ class LibraryViewController: UITableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let selectedBook = library.book(forTag: tag(inSection: indexPath.section), at: indexPath.row) else {
+            return
+        }
+        let bookController = BookViewController(book: selectedBook)
+        self.navigationController?.pushViewController(bookController, animated: true)
+    }
+    
     
     //MARK: - Utils
     

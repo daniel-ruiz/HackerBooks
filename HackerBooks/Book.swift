@@ -31,6 +31,12 @@ class Book {
         }
     }
     
+    var tagsDescription: String {
+        get {
+            return tags.map({ $0 as String }).joined(separator: ", ")
+        }
+    }
+    
     //MARK: - Initialization
     
     init(title: Title, authors: [Author],
