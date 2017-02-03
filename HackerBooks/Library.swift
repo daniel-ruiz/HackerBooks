@@ -55,7 +55,7 @@ class Library {
     
     func books(forTag tag: Tag) -> [Book]? {
         if let bookCollection = books[tag] {
-            return Array(bookCollection)
+            return Array(bookCollection).sorted()
         } else {
             return nil
         }
