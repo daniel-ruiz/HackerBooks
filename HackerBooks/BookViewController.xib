@@ -44,7 +44,7 @@
                                 <barButtonItem style="plain" systemItem="flexibleSpace" id="ATq-IZ-XF1"/>
                                 <barButtonItem image="ic_favorite_border.png" id="aoz-IX-yQA">
                                     <connections>
-                                        <action selector="makeFavorite:" destination="-1" id="3Ug-Md-EeK"/>
+                                        <action selector="toggleFavorite:" destination="-1" id="H9g-cU-Eta"/>
                                     </connections>
                                 </barButtonItem>
                             </items>

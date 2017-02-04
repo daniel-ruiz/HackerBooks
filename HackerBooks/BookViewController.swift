@@ -13,6 +13,7 @@ class BookViewController: UIViewController {
     //MARK: - Properties
     
     var book: Book
+    weak var delegate: BookViewControllerDelegate? = nil
     
     @IBOutlet weak var bookCover: UIImageView!
     @IBOutlet weak var favoriteIcon: UIBarButtonItem!
@@ -30,11 +31,6 @@ class BookViewController: UIViewController {
     
     //MARK: - Lifecycle
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        //edgesForExtendedLayout = UIRectEdge.init(rawValue: 0)
-    }
-
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         syncViewWithBook()
@@ -46,16 +42,28 @@ class BookViewController: UIViewController {
     @IBAction func showPdf(_ sender: UIBarButtonItem) {
     }
 
-    @IBAction func makeFavorite(_ sender: UIBarButtonItem) {
-        self.favoriteIcon.image = UIImage(named: "ic_favorite.png")
+    @IBAction func toggleFavorite(_ sender: UIBarButtonItem) {
+        book.toggleFavoriteState()
+        syncFavoriteIcon()
+        delegate?.bookDidToggleFavoriteState(isNowFavorite: book.isFavorite)
     }
-
     
     
     //MARK: - Utils
     
     func syncViewWithBook() {
         bookCover.image = UIImage(named: "book_icon")
+        syncFavoriteIcon()
     }
     
+    func syncFavoriteIcon() {
+        favoriteIcon.image = book.isFavorite ? UIImage(named: "ic_favorite.png") : UIImage(named: "ic_favorite_border.png")
+    }
+    
+}
+
+//MARK: - Protocols
+
+protocol BookViewControllerDelegate: class {
+    func bookDidToggleFavoriteState(isNowFavorite: Bool)
 }
