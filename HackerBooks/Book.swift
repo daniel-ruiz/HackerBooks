@@ -21,6 +21,7 @@ class Book {
     var tags: [Tag]
     var coverImageUrl: URL?
     var pdfUrl: URL?
+    private var favorite: Bool = false
     
     //MARK: - Computed Properties
     
@@ -36,15 +37,28 @@ class Book {
         }
     }
     
+    var isFavorite: Bool {
+        get {
+            return favorite
+        }
+    }
+    
     //MARK: - Initialization
     
     init(title: Title, authors: [Author],
-         tags: [Tag], coverImageUrl: URL?, pdfUrl: URL?) {
+         tags: [Tag], coverImageUrl: URL?,
+         pdfUrl: URL?, isFavorite: Bool) {
         self.title = title
         self.authors = authors
         self.tags = tags
         self.coverImageUrl = coverImageUrl
         self.pdfUrl = pdfUrl
+        self.favorite = isFavorite
+    }
+    
+    convenience init(title: Title, authors: [Author],
+         tags: [Tag], coverImageUrl: URL?, pdfUrl: URL?) {
+        self.init(title: title, authors: authors, tags: tags, coverImageUrl: coverImageUrl, pdfUrl: pdfUrl, isFavorite: false)
     }
     
     convenience init(title: String, authors: String,
@@ -57,6 +71,12 @@ class Book {
             pdfUrl: URL(string: pdfStringUrl)
         )
          
+    }
+    
+    //MARK: - Utils
+    
+    func toggleFavoriteState() {
+        favorite = !favorite
     }
     
     //MARK: - Proxies
