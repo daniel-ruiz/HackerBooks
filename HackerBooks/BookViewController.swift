@@ -46,10 +46,11 @@ class BookViewController: UIViewController {
         book.toggleFavoriteState()
         syncFavoriteIcon()
         delegate?.bookDidToggleFavoriteState(book: book, isNowFavorite: book.isFavorite)
+        persistBookfavoriteState()
     }
     
     
-    //MARK: - Utils
+    //MARK: - View Synchronization
     
     func syncViewWithBook() {
         bookCover.image = UIImage(named: "book_icon")
@@ -58,6 +59,13 @@ class BookViewController: UIViewController {
     
     func syncFavoriteIcon() {
         favoriteIcon.image = book.isFavorite ? UIImage(named: "ic_favorite.png") : UIImage(named: "ic_favorite_border.png")
+    }
+    
+    //MARK: - Favorite handling
+    
+    func persistBookfavoriteState() {
+        let userDefaults = UserDefaults.standard
+        userDefaults.set(book.isFavorite, forKey: String(book.hashValue))
     }
     
 }

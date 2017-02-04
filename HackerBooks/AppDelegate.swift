@@ -51,7 +51,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     return nil
             }
             
-            return Book(title: title, authors: authors, tags: tags, coverStringUrl: coverUrl, pdfStringUrl: pdfUrl)
+            let book = Book(title: title, authors: authors, tags: tags, coverStringUrl: coverUrl, pdfStringUrl: pdfUrl)
+            
+            let userDefaults = UserDefaults.standard
+            let isBookFavorite = userDefaults.bool(forKey: String(book.hashValue))
+            
+            if isBookFavorite {
+                book.toggleFavoriteState()
+            }
+            
+            return book
         })
     }
 
