@@ -29,13 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func downloadBookCollection() -> [Book] {
         
-        guard let jsonUrl = URL(string: "https://t.co/K9ziV0z3SJ") else {
-            fatalError("Error in book collection URL")
-        }
-        
-        guard let jsonData = try? Data(contentsOf: jsonUrl) else {
-            fatalError("Error in book collection endpoint")
-        }
+        let jsonData = fetchBookData()
         
         guard let jsonObject = try? JSONSerialization.jsonObject(with: jsonData, options: JSONSerialization.ReadingOptions.mutableLeaves) as? [[String: String]],
             let bookCollection = jsonObject else {
@@ -62,6 +56,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             return book
         })
+    }
+    
+    func fetchBookData() -> Data {
+        let bookDataKey = "BookDataKey"
+        let userDefaults = UserDefaults.standard
+        
+        guard let bookData: Data = userDefaults.data(forKey: bookDataKey) else {
+            
+            guard let jsonUrl = URL(string: "https://t.co/K9ziV0z3SJ") else {
+                fatalError("Error in book collection URL")
+            }
+            
+            guard let jsonData = try? Data(contentsOf: jsonUrl) else {
+                fatalError("Error in book collection endpoint")
+            }
+            
+            userDefaults.set(jsonData, forKey: bookDataKey)
+            
+            return jsonData
+        }
+        
+        return bookData
     }
 
 
