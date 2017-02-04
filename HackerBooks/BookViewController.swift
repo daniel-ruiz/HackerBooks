@@ -14,12 +14,8 @@ class BookViewController: UIViewController {
     
     var book: Book
     
-    
-    @IBOutlet weak var bookTitle: UILabel!
-    @IBOutlet weak var bookAuthors: UILabel!
     @IBOutlet weak var bookCover: UIImageView!
-    @IBOutlet weak var bookTags: UILabel!
-    
+    @IBOutlet weak var favoriteIcon: UIBarButtonItem!
     
     //MARK: - Initialization
     
@@ -47,17 +43,19 @@ class BookViewController: UIViewController {
 
     //MARK: - Actions
     
-    @IBAction func showPdf(_ sender: UIButton) {
+    @IBAction func showPdf(_ sender: UIBarButtonItem) {
     }
+
+    @IBAction func makeFavorite(_ sender: UIBarButtonItem) {
+        self.favoriteIcon.image = UIImage(named: "ic_favorite.png")
+    }
+
     
     
     //MARK: - Utils
     
     func syncViewWithBook() {
-        bookTitle.text = book.title
-        bookAuthors.text = book.authorsDescription
         bookCover.image = UIImage(named: "book_icon")
-        bookTags.text = book.tagsDescription
     }
     
 }
