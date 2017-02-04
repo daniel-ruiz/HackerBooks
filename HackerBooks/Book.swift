@@ -11,7 +11,6 @@ import UIKit
 
 typealias Title = String
 typealias Author = String
-typealias Tag = String
 
 class Book {
     
@@ -33,7 +32,7 @@ class Book {
     
     var tagsDescription: String {
         get {
-            return tags.map({ $0 as String }).joined(separator: ", ")
+            return tags.map({ $0.description }).joined(separator: ", ")
         }
     }
     
@@ -53,7 +52,7 @@ class Book {
         self.init(
             title: title as Title,
             authors: authors.components(separatedBy: ", ").flatMap({ $0 as Author }),
-            tags: tags.components(separatedBy: ", ").flatMap({ $0 as Tag }),
+            tags: tags.components(separatedBy: ", ").flatMap({ Tag(rawValue: $0) }),
             coverImageUrl: URL(string: coverStringUrl),
             pdfUrl: URL(string: pdfStringUrl)
         )

@@ -43,7 +43,7 @@ class LibraryViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        let tagContent = tag(inSection: section) as String
+        let tagContent = tag(inSection: section).description
         return tagContent.capitalized
     }
     
