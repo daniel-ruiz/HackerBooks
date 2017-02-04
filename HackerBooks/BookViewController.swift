@@ -45,7 +45,7 @@ class BookViewController: UIViewController {
     @IBAction func toggleFavorite(_ sender: UIBarButtonItem) {
         book.toggleFavoriteState()
         syncFavoriteIcon()
-        delegate?.bookDidToggleFavoriteState(isNowFavorite: book.isFavorite)
+        delegate?.bookDidToggleFavoriteState(book: book, isNowFavorite: book.isFavorite)
     }
     
     
@@ -65,5 +65,5 @@ class BookViewController: UIViewController {
 //MARK: - Protocols
 
 protocol BookViewControllerDelegate: class {
-    func bookDidToggleFavoriteState(isNowFavorite: Bool)
+    func bookDidToggleFavoriteState(book: Book, isNowFavorite: Bool)
 }

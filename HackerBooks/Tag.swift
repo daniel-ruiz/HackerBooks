@@ -12,9 +12,20 @@ struct Tag {
     
     //MARK: - Static Properties
     
-    static var favoriteRawValue: String {
+    private static var favoriteRawValue: String {
         get {
             return "favorites"
+        }
+    }
+    
+    private static var favoriteTagInstance: Tag?
+    
+    static var favoriteTag: Tag {
+        get {
+            if (favoriteTagInstance == nil) {
+                favoriteTagInstance = Tag(rawValue: favoriteRawValue)
+            }
+            return favoriteTagInstance ?? Tag(rawValue: favoriteRawValue)
         }
     }
     

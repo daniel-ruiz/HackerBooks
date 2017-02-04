@@ -64,6 +64,7 @@ class LibraryViewController: UITableViewController {
             return
         }
         let bookController = BookViewController(book: selectedBook)
+        bookController.delegate = self
         self.navigationController?.pushViewController(bookController, animated: true)
     }
     
@@ -72,5 +73,19 @@ class LibraryViewController: UITableViewController {
     
     func tag(inSection section: Int) -> Tag {
         return library.tags[section]
+    }
+}
+
+//MARK: - Protocols
+
+extension LibraryViewController: BookViewControllerDelegate {
+    func bookDidToggleFavoriteState(book: Book, isNowFavorite: Bool) {
+        if (isNowFavorite) {
+            library.addBookToFavorites(book)
+        } else {
+            library.removeBookFromFavorites(book)
+        }
+        
+        self.tableView.reloadData()
     }
 }
