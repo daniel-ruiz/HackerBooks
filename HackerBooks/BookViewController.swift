@@ -32,7 +32,7 @@ class BookViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        edgesForExtendedLayout = UIRectEdge.init(rawValue: 0)
+        //edgesForExtendedLayout = UIRectEdge.init(rawValue: 0)
     }
 
     override func viewWillAppear(_ animated: Bool) {

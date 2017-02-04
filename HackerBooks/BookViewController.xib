@@ -24,8 +24,14 @@
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="SPt-Dg-uBZ">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <subviews>
+                        <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nI6-hy-w7C">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <items>
+                                <navigationItem title="Title" id="5GE-wk-q43"/>
+                            </items>
+                        </navigationBar>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="230" verticalHuggingPriority="230" horizontalCompressionResistancePriority="249" verticalCompressionResistancePriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="5Hj-uj-ZBj">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="615"/>
+                            <rect key="frame" x="0.0" y="52" width="375" height="563"/>
                         </imageView>
                         <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KWQ-KC-djg">
                             <rect key="frame" x="0.0" y="623" width="375" height="44"/>
@@ -50,7 +56,7 @@
             <constraints>
                 <constraint firstItem="SPt-Dg-uBZ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="4rm-u3-LZr"/>
                 <constraint firstAttribute="bottom" secondItem="SPt-Dg-uBZ" secondAttribute="bottom" id="LHj-2Y-pmV"/>
-                <constraint firstItem="SPt-Dg-uBZ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="T3V-PR-KbO"/>
+                <constraint firstItem="SPt-Dg-uBZ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="rVF-fR-irc"/>
                 <constraint firstAttribute="trailing" secondItem="SPt-Dg-uBZ" secondAttribute="trailing" id="xh9-rw-ITV"/>
                 <constraint firstAttribute="bottom" secondItem="SPt-Dg-uBZ" secondAttribute="bottom" id="yiZ-xv-gnt"/>
             </constraints>
