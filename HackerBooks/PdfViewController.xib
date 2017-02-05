@@ -40,18 +40,19 @@
                         <constraint firstItem="bbr-cD-7go" firstAttribute="leading" secondItem="aUJ-ZA-MqC" secondAttribute="leading" id="Ooy-ec-2pm"/>
                     </constraints>
                 </stackView>
-                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="V3A-jn-ard">
-                    <rect key="frame" x="169" y="316" width="37" height="34.5"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="V3A-jn-ard">
+                    <rect key="frame" x="169" y="315" width="37" height="37"/>
                     <color key="color" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
                 </activityIndicatorView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="aUJ-ZA-MqC" secondAttribute="trailing" id="7UW-LQ-wQk"/>
+                <constraint firstItem="V3A-jn-ard" firstAttribute="centerY" secondItem="aUJ-ZA-MqC" secondAttribute="centerY" id="G5g-0w-DcG"/>
                 <constraint firstItem="aUJ-ZA-MqC" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="LlW-Ck-jWp"/>
                 <constraint firstAttribute="bottom" secondItem="aUJ-ZA-MqC" secondAttribute="bottom" id="bK0-JF-QJ2"/>
                 <constraint firstItem="aUJ-ZA-MqC" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="cpy-XS-y4n"/>
+                <constraint firstItem="V3A-jn-ard" firstAttribute="centerX" secondItem="aUJ-ZA-MqC" secondAttribute="centerX" id="qmw-80-lpf"/>
             </constraints>
             <point key="canvasLocation" x="33.5" y="54.5"/>
         </view>
