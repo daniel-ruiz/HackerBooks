@@ -77,6 +77,7 @@ class LibraryViewController: UITableViewController {
         }
         
         delegate?.libraryViewController(self, didSelectBook: selectedBook)
+        notify(bookDidChange: selectedBook)
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -120,5 +121,20 @@ extension LibraryViewController: BookViewControllerDelegate {
         }
         
         self.tableView.reloadData()
+    }
+}
+
+//MARK: - Notifications
+
+extension LibraryViewController {
+    
+    static let NotificationName = Notification.Name(rawValue: "LibraryViewControllerBookDidChange")
+    static let BookKey = "LibraryViewControllerBookKey"
+    
+    func notify(bookDidChange book: Book) {
+        let notificationCenter = NotificationCenter.default
+        let notification = Notification(name: LibraryViewController.NotificationName, object: self, userInfo: [LibraryViewController.BookKey : book])
+        
+        notificationCenter.post(notification)
     }
 }

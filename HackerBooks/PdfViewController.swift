@@ -13,6 +13,7 @@ class PdfViewController: UIViewController {
     //MARK: - Class Properties
     
     static let PdfMimetype: String = "application/pdf"
+    static let DefaultPdfUrl: URL = Bundle.main.url(forResource: "default_pdf", withExtension: "pdf")!
     
     
     //MARK: - Properties
@@ -26,8 +27,7 @@ class PdfViewController: UIViewController {
     //MARK: - Initialization
     
     init(pdfUrl: URL) {
-        let defaultPdfUrl: URL = Bundle.main.url(forResource: "default_pdf", withExtension: "pdf")!
-        pdfData = AsyncData(url: pdfUrl, defaultData: try! Data(contentsOf: defaultPdfUrl))
+        pdfData = AsyncData(url: pdfUrl, defaultData: try! Data(contentsOf: PdfViewController.DefaultPdfUrl))
         super.init(nibName: nil, bundle: nil)
         
         pdfData.delegate = self
@@ -41,8 +41,14 @@ class PdfViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        subscribe()
         requestPdf()
         startSpinner()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        unsubscribe()
     }
     
     //MARK: - Request Handling
@@ -62,6 +68,14 @@ class PdfViewController: UIViewController {
         spinner.isHidden = true
         spinner.stopAnimating()
     }
+    
+    //MARK: - AsyncData Handling
+    
+    func syncPdfData(pdfUrl: URL) {
+        pdfData = AsyncData(url: pdfUrl, defaultData: try! Data(contentsOf: PdfViewController.DefaultPdfUrl))
+        pdfData.delegate = self
+        requestPdf()
+    }
 
 }
 
@@ -71,5 +85,24 @@ extension PdfViewController: AsyncDataDelegate {
     func asyncData(_ sender: AsyncData, didEndLoadingFrom url: URL) {
         requestPdf()
         stopSpinner()
+    }
+}
+
+//MARK: - Notifications
+
+extension PdfViewController {
+    func subscribe() {
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(forName: LibraryViewController.NotificationName, object: nil, queue: OperationQueue.main, using: { self.bookDidChange($0) })
+    }
+    
+    func unsubscribe() {
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.removeObserver(self)
+    }
+    
+    func bookDidChange(_ notification: Notification) {
+        let newBook = notification.userInfo?[LibraryViewController.BookKey] as! Book
+        syncPdfData(pdfUrl: newBook.pdfUrl)
     }
 }
