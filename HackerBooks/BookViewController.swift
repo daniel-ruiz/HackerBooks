@@ -13,6 +13,7 @@ class BookViewController: UIViewController {
     //MARK: - Properties
     
     var book: Book
+    private let bookCoverData: AsyncData
     weak var delegate: BookViewControllerDelegate? = nil
     
     @IBOutlet weak var bookCover: UIImageView!
@@ -20,9 +21,12 @@ class BookViewController: UIViewController {
     
     //MARK: - Initialization
     
-    init(book: Book) {
+    init(book: Book, bookCoverData: AsyncData) {
         self.book = book
+        self.bookCoverData = bookCoverData
         super.init(nibName: nil, bundle: nil)
+        
+        self.bookCoverData.delegate = self
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -53,7 +57,7 @@ class BookViewController: UIViewController {
     //MARK: - View Synchronization
     
     func syncViewWithBook() {
-        bookCover.image = UIImage(named: "book_icon")
+        bookCover.image = UIImage(data: bookCoverData.data)
         syncFavoriteIcon()
     }
     
@@ -70,8 +74,24 @@ class BookViewController: UIViewController {
     
 }
 
+//MARK: - AsyncDataDelegate
+
+extension BookViewController: AsyncDataDelegate {
+    func asyncData(_ sender: AsyncData, didEndLoadingFrom url: URL) {
+        UIView.transition(with: bookCover,
+                          duration: 0.7,
+                          options: [.transitionCrossDissolve],
+                          animations: {
+                            self.bookCover.image = UIImage(data: sender.data)
+                            
+        }, completion: nil)
+    }
+}
+
 //MARK: - Protocols
 
 protocol BookViewControllerDelegate: class {
     func bookDidToggleFavoriteState(book: Book, isNowFavorite: Bool)
 }
+
+

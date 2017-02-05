@@ -74,7 +74,7 @@ class LibraryViewController: UITableViewController {
         guard let selectedBook = library.book(forTag: tag(inSection: indexPath.section), at: indexPath.row) else {
             return
         }
-        let bookController = BookViewController(book: selectedBook)
+        let bookController = BookViewController(book: selectedBook, bookCoverData: AsyncData(url: selectedBook.coverImageUrl, defaultData: defaultBookCoverData))
         bookController.delegate = self
         self.navigationController?.pushViewController(bookController, animated: true)
     }
