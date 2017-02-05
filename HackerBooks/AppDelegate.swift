@@ -17,15 +17,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         let library = Library(books: downloadBookCollection())
-        let libraryController = LibraryViewController(library: library)
-        let navigationController = UINavigationController(rootViewController: libraryController)
+        let libraryViewController = LibraryViewController(library: library)
+        let libraryNavigationController = UINavigationController(rootViewController: libraryViewController)
         
-        self.window?.rootViewController = navigationController
+        let initialBook = fetchInitialBook(library: library)
+        let bookViewController = BookViewController(book: initialBook)
+        let bookNavigationController = UINavigationController(rootViewController: bookViewController)
+        
+        let splitViewController = UISplitViewController(nibName: nil, bundle: nil)
+        splitViewController.viewControllers = [libraryNavigationController, bookNavigationController]
+        
+        switch UIDevice.current.userInterfaceIdiom {
+        case .phone:
+            libraryViewController.delegate = libraryViewController
+        case .pad:
+            libraryViewController.delegate = bookViewController
+        default:
+            fatalError("The application is trying to run in an unsopported device")
+        }
+        
+        self.window?.rootViewController = splitViewController
         self.window?.makeKeyAndVisible()
         return true
     }
 
     //MARK: - Utils
+    
+    func fetchInitialBook(library: Library) -> Book {
+        return library.book(forTag: library.tags.first!, at: 0)!
+    }
     
     func downloadBookCollection() -> [Book] {
         

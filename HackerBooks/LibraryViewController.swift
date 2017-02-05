@@ -13,6 +13,7 @@ class LibraryViewController: UITableViewController {
     //MARK: - Properties
     
     var library: Library
+    weak var delegate: LibraryViewControllerDelegate? = nil
     
     //MARK: - Computed Properties
     
@@ -74,9 +75,8 @@ class LibraryViewController: UITableViewController {
         guard let selectedBook = library.book(forTag: tag(inSection: indexPath.section), at: indexPath.row) else {
             return
         }
-        let bookController = BookViewController(book: selectedBook, bookCoverData: AsyncData(url: selectedBook.coverImageUrl, defaultData: defaultBookCoverData))
-        bookController.delegate = self
-        self.navigationController?.pushViewController(bookController, animated: true)
+        
+        delegate?.libraryViewController(self, didSelectBook: selectedBook)
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -92,6 +92,24 @@ class LibraryViewController: UITableViewController {
 }
 
 //MARK: - Protocols
+
+protocol LibraryViewControllerDelegate: class {
+    func libraryViewController(_ sender: LibraryViewController, didSelectBook book: Book)
+}
+
+
+//MARK: - LibraryViewControllerDelegate
+
+extension LibraryViewController: LibraryViewControllerDelegate {
+    func libraryViewController(_ sender: LibraryViewController, didSelectBook book: Book) {
+        let bookController = BookViewController(book: book)
+        bookController.delegate = self
+        navigationController?.pushViewController(bookController, animated: true)
+    }
+}
+
+
+//MARK: - BookViewControllerDelegate
 
 extension LibraryViewController: BookViewControllerDelegate {
     func bookDidToggleFavoriteState(book: Book, isNowFavorite: Bool) {

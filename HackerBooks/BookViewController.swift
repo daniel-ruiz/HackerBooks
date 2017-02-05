@@ -10,28 +10,33 @@ import UIKit
 
 class BookViewController: UIViewController {
     
+    //MARK: - Static Properties
+    
+    private static let DefaultCoverUrl = Bundle.main.url(forResource: "book_icon", withExtension: "png")!
+    
+    
     //MARK: - Properties
     
     var book: Book
-    private let bookCoverData: AsyncData
+    fileprivate var bookCoverData: AsyncData
     weak var delegate: BookViewControllerDelegate? = nil
     
     @IBOutlet weak var bookCover: UIImageView!
     @IBOutlet weak var favoriteIcon: UIBarButtonItem!
     
+    
     //MARK: - Initialization
     
-    init(book: Book, bookCoverData: AsyncData) {
+    init(book: Book) {
         self.book = book
-        self.bookCoverData = bookCoverData
+        bookCoverData = AsyncData(url: book.coverImageUrl, defaultData: try! Data(contentsOf: BookViewController.DefaultCoverUrl))
         super.init(nibName: nil, bundle: nil)
-        
-        self.bookCoverData.delegate = self
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
     
     //MARK: - Lifecycle
     
@@ -59,13 +64,14 @@ class BookViewController: UIViewController {
     //MARK: - View Synchronization
     
     func syncViewWithBook() {
-        bookCover.image = UIImage(data: bookCoverData.data)
+        syncBookCoverData()
         syncFavoriteIcon()
     }
     
     func syncFavoriteIcon() {
         favoriteIcon.image = book.isFavorite ? UIImage(named: "ic_favorite.png") : UIImage(named: "ic_favorite_border.png")
     }
+    
     
     //MARK: - Favorite handling
     
@@ -74,7 +80,24 @@ class BookViewController: UIViewController {
         userDefaults.set(book.isFavorite, forKey: String(book.hashValue))
     }
     
+    
+    //MARK: - AsyncData Handling
+    
+    func syncBookCoverData() {
+        bookCoverData = AsyncData(url: book.coverImageUrl, defaultData: try! Data(contentsOf: BookViewController.DefaultCoverUrl))
+        bookCoverData.delegate = self
+        bookCover.image = UIImage(data: bookCoverData.data)
+    }
+    
 }
+
+
+//MARK: - Protocols
+
+protocol BookViewControllerDelegate: class {
+    func bookDidToggleFavoriteState(book: Book, isNowFavorite: Bool)
+}
+
 
 //MARK: - AsyncDataDelegate
 
@@ -90,10 +113,12 @@ extension BookViewController: AsyncDataDelegate {
     }
 }
 
-//MARK: - Protocols
+//MARK: - LibraryViewControllerDelegate
 
-protocol BookViewControllerDelegate: class {
-    func bookDidToggleFavoriteState(book: Book, isNowFavorite: Bool)
+extension BookViewController: LibraryViewControllerDelegate {
+    func libraryViewController(_ sender: LibraryViewController, didSelectBook book: Book) {
+        self.book = book
+        syncViewWithBook()
+    }
 }
-
 
