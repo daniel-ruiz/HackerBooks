@@ -30,6 +30,8 @@ class LibraryViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "Hacker Books"
+        let bookCellNib = UINib(nibName: "BookViewCell", bundle: nil)
+        tableView.register(bookCellNib, forCellReuseIdentifier: BookViewCell.cellId)
     }
 
     // MARK: - Table view data source
@@ -48,13 +50,13 @@ class LibraryViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellId = "BookCell"
         let book = library.book(forTag: tag(inSection: indexPath.section), at: indexPath.row)
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellId) ?? UITableViewCell(style: .subtitle, reuseIdentifier: cellId)
+        let cell: BookViewCell = tableView.dequeueReusableCell(withIdentifier: BookViewCell.cellId) as? BookViewCell ?? BookViewCell()
         
-        cell.imageView?.image = UIImage(named: "book_icon")
-        cell.textLabel?.text = book?.title
-        cell.detailTextLabel?.text = book?.authorsDescription
+        cell.coverView?.image = UIImage(named: "book_icon")
+        cell.titleLabel?.text = book?.title
+        cell.authorsLabel?.text = book?.authorsDescription
+        cell.tagsLabel?.text = book?.tagsDescription
         
         return cell
     }
@@ -68,6 +70,10 @@ class LibraryViewController: UITableViewController {
         self.navigationController?.pushViewController(bookController, animated: true)
     }
     
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return BookViewCell.cellHeight
+    }
+
     
     //MARK: - Utils
     
