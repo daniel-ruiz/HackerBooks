@@ -32,6 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             libraryViewController.delegate = libraryViewController
         case .pad:
             libraryViewController.delegate = bookViewController
+            bookViewController.delegate = libraryViewController
         default:
             fatalError("The application is trying to run in an unsopported device")
         }
