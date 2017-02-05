@@ -44,6 +44,8 @@ class BookViewController: UIViewController {
     //MARK: - Actions
     
     @IBAction func showPdf(_ sender: UIBarButtonItem) {
+        let pdfViewController = PdfViewController(pdfUrl: book.pdfUrl)
+        navigationController?.pushViewController(pdfViewController, animated: true)
     }
 
     @IBAction func toggleFavorite(_ sender: UIBarButtonItem) {

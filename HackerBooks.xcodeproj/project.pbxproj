@@ -22,6 +22,9 @@
 		AA27DCBC1E4655CD009005E1 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA27DCBB1E4655CD009005E1 /* Tag.swift */; };
 		AA27DCBF1E469419009005E1 /* BookViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA27DCBE1E469419009005E1 /* BookViewCell.xib */; };
 		AA27DCC11E46990F009005E1 /* BookViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA27DCC01E46990F009005E1 /* BookViewCell.swift */; };
+		AA27DCC31E47173F009005E1 /* default_pdf.pdf in Resources */ = {isa = PBXBuildFile; fileRef = AA27DCC21E47173F009005E1 /* default_pdf.pdf */; };
+		AA27DCC61E4717FB009005E1 /* PdfViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA27DCC41E4717FB009005E1 /* PdfViewController.swift */; };
+		AA27DCC71E4717FB009005E1 /* PdfViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA27DCC51E4717FB009005E1 /* PdfViewController.xib */; };
 		AA8164B21E356B530099915A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8164B11E356B530099915A /* AppDelegate.swift */; };
 		AA8164B41E356B530099915A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8164B31E356B530099915A /* ViewController.swift */; };
 		AA8164B71E356B530099915A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA8164B51E356B530099915A /* Main.storyboard */; };
@@ -47,6 +50,9 @@
 		AA27DCBB1E4655CD009005E1 /* Tag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 		AA27DCBE1E469419009005E1 /* BookViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BookViewCell.xib; sourceTree = "<group>"; };
 		AA27DCC01E46990F009005E1 /* BookViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookViewCell.swift; sourceTree = "<group>"; };
+		AA27DCC21E47173F009005E1 /* default_pdf.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = default_pdf.pdf; sourceTree = "<group>"; };
+		AA27DCC41E4717FB009005E1 /* PdfViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PdfViewController.swift; sourceTree = "<group>"; };
+		AA27DCC51E4717FB009005E1 /* PdfViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PdfViewController.xib; sourceTree = "<group>"; };
 		AA8164AE1E356B530099915A /* HackerBooks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackerBooks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA8164B11E356B530099915A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AA8164B31E356B530099915A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -75,6 +81,8 @@
 				AA27DCA91E443465009005E1 /* LibraryViewController.swift */,
 				AA27DCAB1E4444B6009005E1 /* BookViewController.swift */,
 				AA27DCAC1E4444B6009005E1 /* BookViewController.xib */,
+				AA27DCC41E4717FB009005E1 /* PdfViewController.swift */,
+				AA27DCC51E4717FB009005E1 /* PdfViewController.xib */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -143,6 +151,7 @@
 		AA8164C91E3579D10099915A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				AA27DCC21E47173F009005E1 /* default_pdf.pdf */,
 				AA27DCB51E464F2F009005E1 /* ic_favorite_border_2x.png */,
 				AA27DCB61E464F2F009005E1 /* ic_favorite_border_3x.png */,
 				AA27DCB71E464F2F009005E1 /* ic_favorite_border.png */,
@@ -225,6 +234,8 @@
 			files = (
 				AA8164BC1E356B530099915A /* LaunchScreen.storyboard in Resources */,
 				AA8164B91E356B530099915A /* Assets.xcassets in Resources */,
+				AA27DCC31E47173F009005E1 /* default_pdf.pdf in Resources */,
+				AA27DCC71E4717FB009005E1 /* PdfViewController.xib in Resources */,
 				AA27DCBA1E464F2F009005E1 /* ic_favorite_border.png in Resources */,
 				AA27DCAE1E4444B6009005E1 /* BookViewController.xib in Resources */,
 				AA27DCB21E464EDF009005E1 /* ic_favorite_2x.png in Resources */,
@@ -255,6 +266,7 @@
 				AA27DCC11E46990F009005E1 /* BookViewCell.swift in Sources */,
 				AA8164C61E3572030099915A /* Book.swift in Sources */,
 				AA27DCA71E42A0E1009005E1 /* Library.swift in Sources */,
+				AA27DCC61E4717FB009005E1 /* PdfViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
