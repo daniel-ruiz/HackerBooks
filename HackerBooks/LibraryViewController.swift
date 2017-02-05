@@ -14,6 +14,15 @@ class LibraryViewController: UITableViewController {
     
     var library: Library
     
+    //MARK: - Computed Properties
+    
+    var defaultBookCoverData: Data {
+        get {
+            let defaultCoverUrl = Bundle.main.url(forResource: "book_icon", withExtension: "png")!
+            return try! Data(contentsOf: defaultCoverUrl)
+        }
+    }
+    
     //MARK: - Initialization
     
     init(library: Library) {
@@ -53,7 +62,7 @@ class LibraryViewController: UITableViewController {
         let book = library.book(forTag: tag(inSection: indexPath.section), at: indexPath.row)
         let cell: BookViewCell = tableView.dequeueReusableCell(withIdentifier: BookViewCell.cellId) as? BookViewCell ?? BookViewCell()
         
-        cell.coverView?.image = UIImage(named: "book_icon")
+        cell.setCoverViewData(with: AsyncData(url: (book?.coverImageUrl)!, defaultData: defaultBookCoverData))
         cell.titleLabel?.text = book?.title
         cell.authorsLabel?.text = book?.authorsDescription
         cell.tagsLabel?.text = book?.tagsDescription

@@ -19,8 +19,8 @@ class Book {
     var title: Title
     var authors: [Author]
     var tags: [Tag]
-    var coverImageUrl: URL?
-    var pdfUrl: URL?
+    var coverImageUrl: URL
+    var pdfUrl: URL
     private var favorite: Bool = false
     
     //MARK: - Computed Properties
@@ -46,8 +46,8 @@ class Book {
     //MARK: - Initialization
     
     init(title: Title, authors: [Author],
-         tags: [Tag], coverImageUrl: URL?,
-         pdfUrl: URL?, isFavorite: Bool) {
+         tags: [Tag], coverImageUrl: URL,
+         pdfUrl: URL, isFavorite: Bool) {
         self.title = title
         self.authors = authors
         self.tags = tags
@@ -57,18 +57,27 @@ class Book {
     }
     
     convenience init(title: Title, authors: [Author],
-         tags: [Tag], coverImageUrl: URL?, pdfUrl: URL?) {
+         tags: [Tag], coverImageUrl: URL, pdfUrl: URL) {
         self.init(title: title, authors: authors, tags: tags, coverImageUrl: coverImageUrl, pdfUrl: pdfUrl, isFavorite: false)
     }
     
     convenience init(title: String, authors: String,
                      tags: String, coverStringUrl: String, pdfStringUrl: String) {
+        
+        guard let coverUrl = URL(string: coverStringUrl) else {
+            fatalError("Error while parsing URL: \(coverStringUrl)")
+        }
+        
+        guard let pdfUrl = URL(string: pdfStringUrl) else {
+            fatalError("Error while parsing URL: \(pdfStringUrl)")
+        }
+        
         self.init(
             title: title as Title,
             authors: authors.components(separatedBy: ", ").flatMap({ $0 as Author }),
             tags: tags.components(separatedBy: ", ").flatMap({ Tag(rawValue: $0.capitalized) }),
-            coverImageUrl: URL(string: coverStringUrl),
-            pdfUrl: URL(string: pdfStringUrl)
+            coverImageUrl: coverUrl,
+            pdfUrl: pdfUrl
         )
          
     }
@@ -82,7 +91,7 @@ class Book {
     //MARK: - Proxies
     
     func proxyForEquality() -> String {
-        return "\(title)\(authors)\(tags)\(coverImageUrl?.hashValue)\(pdfUrl?.hashValue)"
+        return "\(title)\(authors)\(tags)\(coverImageUrl.hashValue)\(pdfUrl.hashValue)"
     }
     
 }
@@ -112,7 +121,7 @@ extension Book: Hashable {
 extension Book: CustomStringConvertible {
     var description: String {
         get {
-            return "<Book title:\(title) authors:\(authors) tags:\(tags) coverImageUrl:\(coverImageUrl?.hashValue) pdfUrl:\(pdfUrl?.hashValue)>"
+            return "<Book title:\(title) authors:\(authors) tags:\(tags) coverImageUrl:\(coverImageUrl.hashValue) pdfUrl:\(pdfUrl.hashValue)>"
         }
     }
 }
