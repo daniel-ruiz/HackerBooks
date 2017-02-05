@@ -14,7 +14,7 @@ struct Tag {
     
     private static var favoriteRawValue: String {
         get {
-            return "favorites"
+            return "Favorites"
         }
     }
     

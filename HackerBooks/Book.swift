@@ -66,7 +66,7 @@ class Book {
         self.init(
             title: title as Title,
             authors: authors.components(separatedBy: ", ").flatMap({ $0 as Author }),
-            tags: tags.components(separatedBy: ", ").flatMap({ Tag(rawValue: $0) }),
+            tags: tags.components(separatedBy: ", ").flatMap({ Tag(rawValue: $0.capitalized) }),
             coverImageUrl: URL(string: coverStringUrl),
             pdfUrl: URL(string: pdfStringUrl)
         )
