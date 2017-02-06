@@ -69,7 +69,7 @@ class BookViewController: UIViewController {
     }
     
     func syncFavoriteIcon() {
-        favoriteIcon.image = book.isFavorite ? UIImage(named: "ic_favorite.png") : UIImage(named: "ic_favorite_border.png")
+        favoriteIcon.image = book.isFavorite ? UIImage(named: "ic_favorite") : UIImage(named: "ic_favorite_border")
     }
     
     
