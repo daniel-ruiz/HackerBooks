@@ -80,25 +80,58 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func fetchBookData() -> Data {
-        let bookDataKey = "BookDataKey"
-        let userDefaults = UserDefaults.standard
-        
-        guard let bookData: Data = userDefaults.data(forKey: bookDataKey) else {
+        if existsJsonCache() {
+            return loadJsonFromCache()
+        } else {
             
             guard let jsonUrl = URL(string: "https://t.co/K9ziV0z3SJ") else {
                 fatalError("Error in book collection URL")
             }
             
-            guard let jsonData = try? Data(contentsOf: jsonUrl) else {
+            guard let bookData = try? Data(contentsOf: jsonUrl) else {
                 fatalError("Error in book collection endpoint")
             }
             
-            userDefaults.set(jsonData, forKey: bookDataKey)
+            saveJsonToCache(jsonData: bookData)
             
-            return jsonData
+            return bookData
+        }
+    }
+    
+    func loadJsonFromCache() -> Data {
+        return try! Data(contentsOf: jsonCacheUrl())
+    }
+    
+    func saveJsonToCache(jsonData: Data) {
+        do {
+            try jsonData.write(to: jsonCacheUrl(), options: .atomic)
+        } catch let error as NSError {
+            print(error)
+        }
+    }
+    
+    func jsonCacheUrl() -> URL {
+        let fileManager = FileManager.default
+        let urls = fileManager.urls(for: .cachesDirectory, in: .userDomainMask)
+        
+        guard let cacheDirUrl = urls.last?.appendingPathComponent("\(type(of: self))") else {
+            fatalError("Unable to create URL for local storage at \(urls)")
         }
         
-        return bookData
+        if !fileManager.fileExists(atPath: cacheDirUrl.path) {
+            do {
+                try fileManager.createDirectory(at: cacheDirUrl, withIntermediateDirectories: true, attributes: [:])
+            } catch let error as NSError {
+                print(error)
+            }
+        }
+        
+        return cacheDirUrl.appendingPathComponent("hacker_books.json")
+    }
+    
+    func existsJsonCache() -> Bool {
+        let fileManager = FileManager.default
+        return fileManager.fileExists(atPath: jsonCacheUrl().path)
     }
 
 
