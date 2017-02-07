@@ -25,6 +25,10 @@
 		AA27DCC31E47173F009005E1 /* default_pdf.pdf in Resources */ = {isa = PBXBuildFile; fileRef = AA27DCC21E47173F009005E1 /* default_pdf.pdf */; };
 		AA27DCC61E4717FB009005E1 /* PdfViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA27DCC41E4717FB009005E1 /* PdfViewController.swift */; };
 		AA27DCC71E4717FB009005E1 /* PdfViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA27DCC51E4717FB009005E1 /* PdfViewController.xib */; };
+		AA27DCCB1E4A51CD009005E1 /* book_cover_placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = AA27DCC81E4A51CD009005E1 /* book_cover_placeholder.png */; };
+		AA27DCCC1E4A51CD009005E1 /* book_cover_placeholder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AA27DCC91E4A51CD009005E1 /* book_cover_placeholder@2x.png */; };
+		AA27DCCD1E4A51CD009005E1 /* book_cover_placeholder@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AA27DCCA1E4A51CD009005E1 /* book_cover_placeholder@3x.png */; };
+		AA27DCCF1E4A5673009005E1 /* book_detail_placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = AA27DCCE1E4A5673009005E1 /* book_detail_placeholder.png */; };
 		AA8164B21E356B530099915A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8164B11E356B530099915A /* AppDelegate.swift */; };
 		AA8164B41E356B530099915A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8164B31E356B530099915A /* ViewController.swift */; };
 		AA8164B71E356B530099915A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA8164B51E356B530099915A /* Main.storyboard */; };
@@ -53,6 +57,10 @@
 		AA27DCC21E47173F009005E1 /* default_pdf.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = default_pdf.pdf; sourceTree = "<group>"; };
 		AA27DCC41E4717FB009005E1 /* PdfViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PdfViewController.swift; sourceTree = "<group>"; };
 		AA27DCC51E4717FB009005E1 /* PdfViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PdfViewController.xib; sourceTree = "<group>"; };
+		AA27DCC81E4A51CD009005E1 /* book_cover_placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = book_cover_placeholder.png; sourceTree = "<group>"; };
+		AA27DCC91E4A51CD009005E1 /* book_cover_placeholder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "book_cover_placeholder@2x.png"; sourceTree = "<group>"; };
+		AA27DCCA1E4A51CD009005E1 /* book_cover_placeholder@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "book_cover_placeholder@3x.png"; sourceTree = "<group>"; };
+		AA27DCCE1E4A5673009005E1 /* book_detail_placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = book_detail_placeholder.png; sourceTree = "<group>"; };
 		AA8164AE1E356B530099915A /* HackerBooks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackerBooks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA8164B11E356B530099915A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AA8164B31E356B530099915A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -151,6 +159,10 @@
 		AA8164C91E3579D10099915A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				AA27DCCE1E4A5673009005E1 /* book_detail_placeholder.png */,
+				AA27DCC81E4A51CD009005E1 /* book_cover_placeholder.png */,
+				AA27DCC91E4A51CD009005E1 /* book_cover_placeholder@2x.png */,
+				AA27DCCA1E4A51CD009005E1 /* book_cover_placeholder@3x.png */,
 				AA27DCC21E47173F009005E1 /* default_pdf.pdf */,
 				AA27DCB51E464F2F009005E1 /* ic_favorite_border@2x.png */,
 				AA27DCB61E464F2F009005E1 /* ic_favorite_border@3x.png */,
@@ -233,17 +245,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA8164BC1E356B530099915A /* LaunchScreen.storyboard in Resources */,
+				AA27DCCC1E4A51CD009005E1 /* book_cover_placeholder@2x.png in Resources */,
 				AA8164B91E356B530099915A /* Assets.xcassets in Resources */,
 				AA27DCC31E47173F009005E1 /* default_pdf.pdf in Resources */,
 				AA27DCC71E4717FB009005E1 /* PdfViewController.xib in Resources */,
 				AA27DCBA1E464F2F009005E1 /* ic_favorite_border.png in Resources */,
+				AA27DCCF1E4A5673009005E1 /* book_detail_placeholder.png in Resources */,
 				AA27DCAE1E4444B6009005E1 /* BookViewController.xib in Resources */,
 				AA27DCB21E464EDF009005E1 /* ic_favorite@2x.png in Resources */,
 				AA27DCB31E464EDF009005E1 /* ic_favorite@3x.png in Resources */,
 				AA27DCB41E464EDF009005E1 /* ic_favorite.png in Resources */,
 				AA8164B71E356B530099915A /* Main.storyboard in Resources */,
 				AA27DCB81E464F2F009005E1 /* ic_favorite_border@2x.png in Resources */,
+				AA27DCCD1E4A51CD009005E1 /* book_cover_placeholder@3x.png in Resources */,
 				AA27DCB91E464F2F009005E1 /* ic_favorite_border@3x.png in Resources */,
+				AA27DCCB1E4A51CD009005E1 /* book_cover_placeholder.png in Resources */,
 				AA8164C81E3579CC0099915A /* book_icon.png in Resources */,
 				AA27DCBF1E469419009005E1 /* BookViewCell.xib in Resources */,
 			);

@@ -12,7 +12,7 @@ class BookViewController: UIViewController {
     
     //MARK: - Static Properties
     
-    private static let DefaultCoverUrl = Bundle.main.url(forResource: "book_icon", withExtension: "png")!
+    private static let DefaultCover = UIImage(named: "book_detail_placeholder")!
     
     
     //MARK: - Properties
@@ -29,7 +29,7 @@ class BookViewController: UIViewController {
     
     init(book: Book) {
         self.book = book
-        bookCoverData = AsyncData(url: book.coverImageUrl, defaultData: try! Data(contentsOf: BookViewController.DefaultCoverUrl))
+        bookCoverData = AsyncData(url: book.coverImageUrl, defaultData: UIImagePNGRepresentation(BookViewController.DefaultCover)!)
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -84,7 +84,7 @@ class BookViewController: UIViewController {
     //MARK: - AsyncData Handling
     
     func syncBookCoverData() {
-        bookCoverData = AsyncData(url: book.coverImageUrl, defaultData: try! Data(contentsOf: BookViewController.DefaultCoverUrl))
+        bookCoverData = AsyncData(url: book.coverImageUrl, defaultData: UIImagePNGRepresentation(BookViewController.DefaultCover)!)
         bookCoverData.delegate = self
         bookCover.image = UIImage(data: bookCoverData.data)
     }

@@ -19,8 +19,8 @@ class LibraryViewController: UITableViewController {
     
     var defaultBookCoverData: Data {
         get {
-            let defaultCoverUrl = Bundle.main.url(forResource: "book_icon", withExtension: "png")!
-            return try! Data(contentsOf: defaultCoverUrl)
+            let defaultCover = UIImage(named: "book_cover_placeholder")!
+            return UIImagePNGRepresentation(defaultCover)!
         }
     }
     
